@@ -1,13 +1,11 @@
 package main
 
-//import "fmt"
-
 func Solution(A []int, K int) []int {
 
 	size := len(A)
 	r := make([]int, size)
 
-	if size < 1 {
+	if size <= 1 {
 		return A
 	}
 
