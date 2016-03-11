@@ -1,0 +1,46 @@
+<html>
+    <body>
+<script>
+function solution(A, B) {
+    if (A.length <= 1) return A.length;
+    var x = 0,
+        y = 1,
+        z = 0,
+        r = A.length;
+    while (y < A.length) {
+
+        if (B[x] > B[y]) {
+            if (A[x] < A[y]) {
+                x = y;
+            }
+            r--;
+        } else {
+            x = y;
+        }
+
+        y++;
+    }
+
+
+
+    return r;
+}
+
+function test(a, b, expect) {
+    var result = solution(a, b);
+    if (result != expect) {
+        console.log('FAIL: expect ' + expect + ' got ' + result, a, b);
+    } else {
+        console.log('OK: ' + result + ' for ', a, b);
+    }
+}
+
+test([4, 3, 2, 1, 5], [0, 1, 1, 0, 0], 1);
+test([1], [0], 1);
+test([4,3,2,1,5], [0,1,0,0,0], 2);
+test([0,1],[1,1], 2);
+test([5,4,2,1,6,3], [1,0,1,0,1,0], 3);
+
+</script>
+    </body>
+</html>
